@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
 import errorHandler, { notfoundandler } from './middleware/errorHandler'
+import router from './router'
 
 const app: Application = express()
 
@@ -12,7 +13,7 @@ app.get('/', (req: Request, res: Response) => {
     .status(200)
     .send({ success: true, message: 'Course Education Server is Running' })
 })
-
+app.use('/api/v1', router)
 app.use(notfoundandler)
 app.use(errorHandler)
 

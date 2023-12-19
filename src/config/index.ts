@@ -5,5 +5,9 @@ dotenv.config({ path: path.join(process.cwd(), '.env') })
 export default {
   port: process.env.PORT,
   database_url: process.env.MONGODB_URL,
-  env: process.env.env
+  env: process.env.env,
+  auth_token : process.env.ACCESS_TOKEN,
+  auth_token_expire : process.env.ACCESS_TOKEN_EXPIRES_IN,
+  refresh_token : process.env.REFRESH_TOKEN,
+  refresh_token_expire : process.env.REFRESH_TOKEN_EXPIRES_IN,
 }
