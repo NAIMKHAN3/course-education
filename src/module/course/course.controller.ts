@@ -43,10 +43,24 @@ export const getCourseById = async (req: Request, res: Response, next: NextFunct
     }
 }
 
+export const deleteCourse = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const result = await Course.findByIdAndDelete(req.params.id);
+        res.status(200).send({
+            success: true,
+            message: "course delete success",
+            data: result,
+        })
+    }
+    catch (err) {
+        next(err)
+    }
+}
+
 export const updateCourse = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const id = req.params.id;
-        const result = await Course.findByIdAndUpdate(id, req.body,{new:true});
+        const result = await Course.findByIdAndUpdate(id, req.body, { new: true });
         res.status(200).send({
             success: true,
             message: "course update success",
