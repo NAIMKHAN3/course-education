@@ -38,7 +38,7 @@ const courseModel = new Schema<ICourse>({
             required: true,
         },
         classDays: {
-            type: String,
+            type: [String],
             required: true,
             enum: enumDays
         },

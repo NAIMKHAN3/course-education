@@ -13,7 +13,7 @@ app.get('/', (req: Request, res: Response) => {
     .status(200)
     .send({ success: true, message: 'Course Education Server is Running' })
 })
-app.use('/api/v1', router)
+app.use('/api', router)
 app.use(notfoundandler)
 app.use(errorHandler)
 
